@@ -3,24 +3,20 @@ public class ProblemSet7 {
 
     }
 
-    /*
-     * Exercise 1.
-     *
-     * Given two strings, return a new string built by surrounding in with the first
-     * and last two characters of out.
-     */
     public String surroundMe(String in, String out) {
-
+        if (out == null || out.length() != 4 || in == null) {
+            return in;
+        } else {
+            return out.substring(0, 2) + in + out.substring(2);
+        }
     }
 
-    /*
-     * Exercise 2.
-     *
-     * Given a string and an integer, return a new string that represents the first
-     * and last n characters of text (overlapping, as needed).
-     */
-    public String endsMeet(String text, int n) {
-
+    public String endsMeet(String charecter, int n) {
+        if (charecter == null || charecter.length() < 1 || charecter.length() > 10 || n < 1 || n > charecter.length()) {
+            return charecter;
+        } else {
+            return charecter.substring(0, n) + charecter.substring(charecter.length() - n);
+        }
     }
 
     /*
