@@ -54,22 +54,36 @@ public class ProblemSet7 {
         }
     }
 
-    /*
-     * Exercise 6.
-     *
-     * Given a string, compute the number of triplets in text.
-     */
-    public int triplets(String text) {
-
+    public int triplets(String charecter) {
+        if (charecter == null) {
+            return -1;
+        } else {
+            int num = 0;
+            char seq = (charecter.length() > 0) ? charecter.charAt(0) : ' ';
+            int conse = 0;
+            for (int i = 0; i < charecter.length(); i++) {
+                if (charecter.charAt(i) == seq) {
+                    conse += 1;
+                    if (conse >= 3) {
+                        num += 1;
+                    }
+                } else {
+                    seq = charecter.charAt(i);
+                    conse = 1;
+                }
+            }return num;
+        }
     }
 
-    /*
-     * Exercise 7.
-     *
-     * Given a string, compute the sum of the digits in text.
-     */
-    public long addMe(String text) {
-
+    public long addMe(String charecter) {
+        if (charecter == null) {
+            return -1;
+        } else {
+            long total = 0;
+            for (int i = 0; i < charecter.length(); i++) {
+                total += (Character.isDigit(charecter.charAt(i))) ? Long.parseLong(String.valueOf(charecter.charAt(i))) : 0;
+            } return total;
+        }
     }
 
     /*
