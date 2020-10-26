@@ -19,13 +19,12 @@ public class ProblemSet7 {
         }
     }
 
-    /*
-     * Exercise 3.
-     *
-     * Given a string, return a new string using the middle three characters of text.
-     */
-    public String middleMan(String text) {
-
+    public String middleMan(String charecter) {
+        if (charecter == null || !(charecter.length() >= 3 && charecter.length() % 2 == 1)) {
+            return charecter;
+        } else {
+            return charecter.substring(charecter.length() - (2 + charecter.length() / 2), (charecter.length() / 2) + 2);
+        }
     }
 
     /*
