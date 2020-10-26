@@ -86,31 +86,51 @@ public class ProblemSet7 {
         }
     }
 
-    /*
-     * Exercise 8.
-     *
-     * Given a string, compute the length of the longest sequence.
-     */
-    public long sequence(String text) {
-
+    public long sequence(String charecter) {
+        if (charecter == null) {
+            return -1;
+        } else {
+            char next = (charecter.length() > 0) ? charecter.charAt(0) : ' ';
+            long consec = 0;
+            long longest = 0;
+            for (int i = 0; i < charecter.length(); i++) {
+                if (charecter.charAt(i) == next) {
+                    consec += 1;
+                    if (consec > longest) {
+                        longest = consec;
+                    }
+                } else {
+                    next = charecter.charAt(i);
+                    consec = 1;
+                }
+            } return longest;
+        }
     }
 
-    /*
-     * Exercise 9.
-     *
-     * Given two strings, return a new string built by intertwining each of the
-     * characters of a and b.
-     */
-    public String intertwine(String a, String b) {
-
+    public String intertwine(String one, String two) {
+        if (one == null || two == null) {
+            return null;
+        } else {
+            String output = "";
+            String c = (one.length() < two.length()) ? one : two;
+            String d = (one.length() < two.length()) ? two : one;
+            for (int i = 0; i < c.length(); i++) {
+                output += String.valueOf(one.charAt(i)) + String.valueOf(two.charAt(i));
+            } for (int j = 0; j < d.substring(c.length()).length(); j++) {
+                output += String.valueOf(d.substring(c.length()).charAt(j));
+            }
+            return output;
+        }
     }
 
-    /*
-     * Exercise 10.
-     *
-     * Given a string, determine whether or not it is a palindrome.
-     */
-    public boolean isPalindrome(String text) {
-
+    public boolean isPalindrome(String charecter) {
+        if (charecter == null) {
+            return false;
+        } else {
+            String reverse = "";
+            for (int i = charecter.length() - 1; i >= 0; i--) {
+                reverse += String.valueOf(charecter.charAt(i));
+            } return reverse.equals(charecter);
+        }
     }
 }
