@@ -27,23 +27,31 @@ public class ProblemSet7 {
         }
     }
 
-    /*
-     * Exercise 4.
-     *
-     * Given two strings, determine whether or not target is equivalent to the middle
-     * three characters of text.
-     */
-    public boolean isCentered(String text, String target) {
-
+    public boolean isCentered(String charecter, String aim) {
+        if (charecter == null || aim == null || !(charecter.length() >= 3 && charecter.length() % 2 == 1) || aim.length() != 3) {
+            return false;
+        } else {
+            return aim.equals(charecter.substring(charecter.length() - (2 + charecter.length() / 2), (charecter.length() / 2) + 2));
+        }
     }
 
-    /*
-     * Exercise 5.
-     *
-     * Given a string and a character, compute the number of words that end in suffix.
-     */
-    public int countMe(String text, char suffix) {
-
+    public int countMe(String charecter, char suff) {
+        if (charecter == null || !Character.isLetter(suff)) {
+            return -1;
+        } else {
+            int count = 0;
+            if (charecter.contains(" ")) {
+                count += (charecter.substring(0, charecter.indexOf(" ")).endsWith(String.valueOf(suff))) ? 1 : 0;
+                for (int i = 0; i < charecter.lastIndexOf(" "); i++) {
+                    if (charecter.charAt(i) == ' ') {
+                        count += (charecter.substring(i, i + 1 + charecter.substring(i + 1).indexOf(" ")).endsWith(String.valueOf(suff))) ? 1 : 0;
+                    }
+                }
+                count += (charecter.substring(charecter.lastIndexOf(" ")).endsWith(String.valueOf(suff))) ? 1 : 0;
+            } else {
+                count += (charecter.endsWith(String.valueOf(suff))) ? 1 : 0;
+            } return count;
+        }
     }
 
     /*
