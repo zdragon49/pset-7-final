@@ -1,7 +1,5 @@
 public class ProblemSet7 {
     public static void main(String[] args) {
-        ProblemSet7 test = new ProblemSet7();
-        System.out.println(test.surroundMe(null));
     }
 
     public String surroundMe(String in, String out) {
